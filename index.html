@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+     <div class='jumbotron text-center'>
+        <h1>Click The Buttons For A Treat</h1>
+    </div>
+    <div>
+    <button class='btn btn-block' id='btn1'>1</button>
+    <button class='btn btn-block' id='btn2'>2</button>
+    <button class='btn btn-block' id='btn3'>3</button>
+    <button class='btn btn-block' id='btn4'>4</button>
+    </div> 
+    <div>
+        <p id='1' hidden>Here</p>
+    </div>
+     <div>
+        <p id='2' hidden>Comes</p>
+    </div>
+     <div>
+        <p id='3' hidden>Ur Friend</p>
+    </div>
+     <div>
+        <article hidden><img src=http://www.clker.com/cliparts/L/0/G/6/q/Y/cartoon-turtle.svg></article>
+    </div>
+</body>
+</html>
+
+<script>
+    $(function(){
+        $('#btn1').on('click', function(){
+            $('#1').slideToggle(200);
+        })
+    });
+    $(function(){
+        $('#btn2').on('click', function(){
+            $('#2').toggle(200);
+        })
+    });
+    $(function(){
+        $('#btn3').on('click', function(){
+            $('#3').toggle(200);
+        })
+    });
+    $(function(){
+        $('#btn4').on('click', function(){
+            $('article').slideToggle(4000);
+        })
+    });
+
+    
+</script>
