@@ -1,57 +1,74 @@
-{[
-
-var br13 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
+[{
+    "name": "br12",
+    "quantity": 10,
+    "first": "black1",
+    "last": "red2"
+},
+    
+    "name": "br13",
+    "quantity": 10,
+    "first": "black1",
+    "last": "red3"
 },
 
-var br23 = {
-    quantity: 10,
-    first: 'black2',
-    last: 'red3',
+    "name": "br21",
+    "quantity": 10,
+    "first": "black2",
+    "last": "red1"
 },
 
-var br31 = {
-    quantity: 10,
-    first: 'black3',
-    last: 'red1',
+    "name": "br23",
+    "quantity": 10,
+    "first": "black2",
+    "last": "red3"
 },
 
-var br32 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
+    "name": "br31",
+    "quantity": 10,
+    "first": "black3",
+    "last": "red1"
 },
 
-var br13 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
+    "name": "br32",
+    "quantity": 10,
+    "first": "black3",
+    "last": "red2"
 },
 
-var br13 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
+    "name": "rb12",
+    "quantity": 10,
+    "first": "red1",
+    "last": "black2"
+},
+    
+    "name": "rb13",
+    "quantity": 10,
+    "first": "red1",
+    "last": "black3"
 },
 
-var br13 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
+    "name": "rb21",
+    "quantity": 10,
+    "first": "red2",
+    "last": "black1"
 },
 
-var br13 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
+    "name": "rb23",
+    "quantity": 10,
+    "first": "red2",
+    "last": "black3"
 },
 
-var br13 = {
-    quantity: 10,
-    first: 'black1',
-    last: 'red3',
-}
+    "name": "rb31",
+    "quantity": 10,
+    "first": "red3",
+    "last": "black1"
+},
 
-]};
+    "name": "rb32",
+    "quantity": 10,
+    "first": "red3",
+    "last": "black2"
+},
+
+}];
