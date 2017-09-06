@@ -59,13 +59,14 @@ buildDeck(cards);
          //Take the item in the array
         for (var i = 0; i < array.length; i++) {
             //loop that item 10 times, add each loop into the deck
-            for (var x=0; x < 10; x++){
+            for (var x=0; x < 2; x++){
              fullDeck.push(array[i]);
     }
   }
 }
  
     function shuffleArray(array) {
+        
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
@@ -73,37 +74,36 @@ buildDeck(cards);
         array[j] = temp;
     }
     return array;
+        
 }  
 
+
     function showShuffle(){
+        if(fullDeck.length === 36) {
       //document.getElementById("result").innerHTML = shuffleArray(cards).toString();
       deck = shuffleArray(fullDeck);
       document.getElementById("deck").innerHTML = deck.toString();
+        }
 }
 
 //deal one card to player and remove from shuffled Deck
 var hand = [];
 function dealCards(){
+    if(fullDeck.length > 0) {
     for (var i = 0; i < 1; i++) {
         
     hand.push(deck[i]);
     var button = document.createElement("button");
+    button.className = 'hand';
     button.innerHTML = deck[i];
     deck.splice(deck[i], 1);    
     }
     
-    
-
-
-
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(button);
-
-
-    // document.getElementById("hand").innerHTML = hand.toString();
     document.getElementById("deck").innerHTML = deck.toString();
   }
-    
+}
     
 
 
