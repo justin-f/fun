@@ -81,15 +81,26 @@ buildDeck(cards);
       document.getElementById("deck").innerHTML = deck.toString();
 }
 
-//deal one card to player
+//deal one card to player and remove from shuffled Deck
 var hand = [];
 function dealCards(){
     for (var i = 0; i < 1; i++) {
         
     hand.push(deck[i]);
+    var button = document.createElement("button");
+    button.innerHTML = deck[i];
     deck.splice(deck[i], 1);    
     }
-    document.getElementById("hand").innerHTML = hand.toString();
+    
+    
+
+
+
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(button);
+
+
+    // document.getElementById("hand").innerHTML = hand.toString();
     document.getElementById("deck").innerHTML = deck.toString();
   }
     
