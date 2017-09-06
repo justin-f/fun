@@ -7,7 +7,26 @@
     <script src='script.js'></script>
     <title>Document</title>
 </head>
+<style>
+    #deck {
+    display:block;
+    width:400px;
+    word-wrap:break-word;
+    font-family: "Consolas";
+    }
+    #hand {
+    display:block;
+    width:400px;
+    word-wrap:break-word;
+    font-family: "Consolas";
+}
+</style>
 <body>
+    <div id='deck'></div>
     
+    <button type='button' onClick='showShuffle();' id='shuffle'>Shuffle</button>
+    <button type='button' onClick='dealCards();' id='deal'>Deal</button>
+    
+    <div id='hand'></div>
 </body>
 </html>
