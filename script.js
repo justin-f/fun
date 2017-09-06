@@ -53,7 +53,9 @@ var cards = ["br12", "br13", "br21", "br23", "br31", "br32", "br11", "br22", "br
         "rb13", "rb21", "rb23", "rb31", "rb32", "rb11", "rb22", "rb33"];
 var fullDeck = [];
 var deck = [];
+var hand = [];
 buildDeck(cards);
+
 
     function buildDeck(array){
          //Take the item in the array
@@ -87,27 +89,43 @@ buildDeck(cards);
 }
 
 //deal one card to player and remove from shuffled Deck
-var hand = [];
+// var hand = [];
 function dealCards(){
     if(fullDeck.length > 0) {
     for (var i = 0; i < 1; i++) {
         
     hand.push(deck[i]);
-    var button = document.createElement("button");
-    button.className = 'hand';
-    button.innerHTML = deck[i];
-    deck.splice(deck[i], 1);    
+    showHand();
+    deck.splice(deck[i], 1); 
+    // var button = document.createElement("button");
+    // button.className = 'hand';
+    // button.innerHTML = deck[i];
+    // button.addEventListener('click', discardCard());
+       
     }
     
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(button);
+    // var body = document.getElementsByTagName("body")[0];
+    // body.appendChild(button);
     document.getElementById("deck").innerHTML = deck.toString();
   }
+  
+  
 }
+var discardDeck = [];    
+function discardCard() {
     
+}
 
-
-
+function showHand(){
+        for (var i = 0; i < 1; i++) {
+        var button = document.createElement("button");
+        button.className = 'hand';
+        button.innerHTML = deck[i].toString(); 
+        // button.addEventListener('click', discardCard());
+        var body = document.getElementsByTagName("body")[0];
+        body.appendChild(button);
+        }
+}
 
 
 
