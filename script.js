@@ -92,7 +92,7 @@ buildDeck(cards);
 //deal one card to player and remove from shuffled Deck
 // var hand = [];
 function dealCards(){
-    if(fullDeck.length > 0) {
+    if(fullDeck.length > 0 && inspectCard === 0) {
     for (var i = 0; i < 1; i++) {
 
     hand.push(deck[i]);
@@ -112,13 +112,10 @@ function dealCards(){
 
 
 }
-var discardDeck = [];
-function discardCard() {
 
-}
 var count=1;
 function showHand(){
-
+        
         for (var i = 0; i < 1; i++) {
         var button = document.createElement("button");
         //assign each button an ID. ID will be the card's name and a counter value
@@ -127,7 +124,7 @@ function showHand(){
         //assign an onclick attribute to each button. playCard(cardName);
         //See the playCard function below
         button.setAttribute("onclick", "lookCard('"+ cardId +"');")
-        button.className = 'btn btn-primary btn-block';
+        button.className = 'btn btn-primary btn-lrg';
         button.innerHTML = deck[i].toString();
         // button.addEventListener('click', discardCard());
         var handArea = document.getElementById('handArea');
@@ -140,19 +137,20 @@ function showHand(){
 function lookCard(cardId){
   //pop up that allows player to confirm discard
   
-  if (inspectCard < 1) {
+  if (inspectCard === 0) {
+  // document.getElementById('cardId').style.backgroundColor = "#FFFFFF" 
   var buttonPlay = document.createElement("button");
   buttonPlay.innerHTML = 'Play';
-  buttonPlay.className = 'btn btn-primary btn-lrg';
+  buttonPlay.className = 'btn btn-primary btn-lrg col-xs-4';
   var inspectArea = document.getElementById("inspectArea");
   inspectArea.appendChild(buttonPlay);
   var buttonDiscard = document.createElement("button")
   buttonDiscard.innerHTML = 'Discard';
-  buttonDiscard.className = 'btn btn-primary btn-lrg';
+  buttonDiscard.className = 'btn btn-primary btn-lrg col-xs-4';
   inspectArea.appendChild(buttonDiscard);
   var buttonReturn = document.createElement("button")
   buttonReturn.innerHTML = 'Return';
-  buttonReturn.className = 'btn btn-primary btn-lrg';
+  buttonReturn.className = 'btn btn-primary btn-lrg col-xs-4';
   buttonReturn.setAttribute("onclick", "returnCard();");
   inspectArea.appendChild(buttonReturn);
   inspectCard++;
@@ -170,7 +168,7 @@ function discardCard(){
 
 function returnCard() {
   var elem = document.getElementById('inspectArea');
-  elem.parentNode.removeChild(elem);
+  elem.innerHTML = '';
   inspectCard=0;
   }
 
