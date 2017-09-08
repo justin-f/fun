@@ -85,7 +85,7 @@ buildDeck(cards);
         if(fullDeck.length === 36) {
       //document.getElementById("result").innerHTML = shuffleArray(cards).toString();
       deck = shuffleArray(fullDeck);
-      document.getElementById("deck").innerHTML = deck.toString();
+      // document.getElementById("deck").innerHTML = deck.toString();
         }
 }
 
@@ -98,16 +98,8 @@ function dealCards(){
     hand.push(deck[i]);
     showHand();
     deck.splice(deck[i], 1);
-    // var button = document.createElement("button");
-    // button.className = 'hand';
-    // button.innerHTML = deck[i];
-    // button.addEventListener('click', discardCard());
-
-    }
-
-    // var body = document.getElementsByTagName("body")[0];
-    // body.appendChild(button);
-    document.getElementById("deck").innerHTML = deck.toString();
+      }
+    // document.getElementById("deck").innerHTML = deck.toString();
   }
 
 
@@ -126,7 +118,6 @@ function showHand(){
         button.setAttribute("onclick", "lookCard('"+ cardId +"');")
         button.className = 'btn btn-primary btn-lrg';
         button.innerHTML = deck[i].toString();
-        // button.addEventListener('click', discardCard());
         var handArea = document.getElementById('handArea');
         handArea.appendChild(button);
         count++;
@@ -135,16 +126,17 @@ function showHand(){
 
 //function that will execute when a card is clicked
 function lookCard(cardId){
-  //pop up that allows player to confirm discard
+  //pop up that allows player to confirm discard / RETURN / play
   
   if (inspectCard === 0) {
-  // document.getElementById('cardId').style.backgroundColor = "#FFFFFF" 
   var buttonPlay = document.createElement("button");
+  buttonPlay.setAttribute("onclick", "playCard('"+cardId+"');");
   buttonPlay.innerHTML = 'Play';
   buttonPlay.className = 'btn btn-primary btn-lrg col-xs-4';
   var inspectArea = document.getElementById("inspectArea");
   inspectArea.appendChild(buttonPlay);
   var buttonDiscard = document.createElement("button")
+  buttonDiscard.setAttribute("onclick", "discardCard('"+cardId+"');");
   buttonDiscard.innerHTML = 'Discard';
   buttonDiscard.className = 'btn btn-primary btn-lrg col-xs-4';
   inspectArea.appendChild(buttonDiscard);
@@ -154,21 +146,27 @@ function lookCard(cardId){
   buttonReturn.setAttribute("onclick", "returnCard();");
   inspectArea.appendChild(buttonReturn);
   inspectCard++;
-  console.log(inspectCard);
-    }
+     }
+    
 }
 
-function playCard(){
-  
+function playCard(cardId){
+   
 }
+var discardPile = [];
 
-function discardCard(){
-  
+//HELPPPPPPPPPPPPPPPPPP
+function discardCard(cardId){
+  var handArea = document.getElementById('handArea');
+  discardPile.push(cardId);
+  var card = cardId
+  hand.splice(1)
+  returnCard();
 }
 
 function returnCard() {
-  var elem = document.getElementById('inspectArea');
-  elem.innerHTML = '';
+  var returnCard = document.getElementById('inspectArea');
+  returnCard.innerHTML = '';
   inspectCard=0;
   }
 
