@@ -40,9 +40,9 @@
 // var hand = [];
 // function dealCards(){
 //     for (var i = 0; i < 3; i++) {
-        
-   
-    
+
+
+
 //     }
 //     document.getElementById("hand").innerHTML = hand.toString();
 //   }
@@ -54,6 +54,7 @@ var cards = ["br12", "br13", "br21", "br23", "br31", "br32", "br11", "br22", "br
 var fullDeck = [];
 var deck = [];
 var hand = [];
+var inspectCard=0;
 buildDeck(cards);
 
 
@@ -66,9 +67,9 @@ buildDeck(cards);
     }
   }
 }
- 
+
     function shuffleArray(array) {
-        
+
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
@@ -76,8 +77,8 @@ buildDeck(cards);
         array[j] = temp;
     }
     return array;
-        
-}  
+
+}
 
 
     function showShuffle(){
@@ -93,41 +94,85 @@ buildDeck(cards);
 function dealCards(){
     if(fullDeck.length > 0) {
     for (var i = 0; i < 1; i++) {
-        
+
     hand.push(deck[i]);
     showHand();
-    deck.splice(deck[i], 1); 
+    deck.splice(deck[i], 1);
     // var button = document.createElement("button");
     // button.className = 'hand';
     // button.innerHTML = deck[i];
     // button.addEventListener('click', discardCard());
-       
+
     }
-    
+
     // var body = document.getElementsByTagName("body")[0];
     // body.appendChild(button);
     document.getElementById("deck").innerHTML = deck.toString();
   }
-  
-  
-}
-var discardDeck = [];    
-function discardCard() {
-    
-}
 
+
+}
+var discardDeck = [];
+function discardCard() {
+
+}
+var count=1;
 function showHand(){
+
         for (var i = 0; i < 1; i++) {
         var button = document.createElement("button");
-        button.className = 'hand';
-        button.innerHTML = deck[i].toString(); 
+        //assign each button an ID. ID will be the card's name and a counter value
+        var cardId = deck[i].toString() + count.toString()
+        button.setAttribute("id", cardId);
+        //assign an onclick attribute to each button. playCard(cardName);
+        //See the playCard function below
+        button.setAttribute("onclick", "lookCard('"+ cardId +"');")
+        button.className = 'btn btn-primary btn-block';
+        button.innerHTML = deck[i].toString();
         // button.addEventListener('click', discardCard());
-        var body = document.getElementsByTagName("body")[0];
-        body.appendChild(button);
+        var handArea = document.getElementById('handArea');
+        handArea.appendChild(button);
+        count++;
         }
 }
 
+//function that will execute when a card is clicked
+function lookCard(cardId){
+  //pop up that allows player to confirm discard
+  
+  if (inspectCard < 1) {
+  var buttonPlay = document.createElement("button");
+  buttonPlay.innerHTML = 'Play';
+  buttonPlay.className = 'btn btn-primary btn-lrg';
+  var inspectArea = document.getElementById("inspectArea");
+  inspectArea.appendChild(buttonPlay);
+  var buttonDiscard = document.createElement("button")
+  buttonDiscard.innerHTML = 'Discard';
+  buttonDiscard.className = 'btn btn-primary btn-lrg';
+  inspectArea.appendChild(buttonDiscard);
+  var buttonReturn = document.createElement("button")
+  buttonReturn.innerHTML = 'Return';
+  buttonReturn.className = 'btn btn-primary btn-lrg';
+  buttonReturn.setAttribute("onclick", "returnCard();");
+  inspectArea.appendChild(buttonReturn);
+  inspectCard++;
+  console.log(inspectCard);
+    }
+}
 
+function playCard(){
+  
+}
+
+function discardCard(){
+  
+}
+
+function returnCard() {
+  var elem = document.getElementById('inspectArea');
+  elem.parentNode.removeChild(elem);
+  inspectCard=0;
+  }
 
 
 
@@ -139,7 +184,7 @@ function showHand(){
     "first": "black1",
     "last": "red2"
 },
-  {  
+  {
     "name": "br13",
     "quantity": 10,
     "first": "black1",
@@ -175,7 +220,7 @@ function showHand(){
     "first": "red1",
     "last": "black2"
 },
-  { 
+  {
     "name": "rb13",
     "quantity": 10,
     "first": "red1",

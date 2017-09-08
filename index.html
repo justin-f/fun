@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,8 +34,12 @@
     <button type='button' onClick='showShuffle();' id='shuffle'>Shuffle</button>
     <button type='button' onClick='dealCards();' id='deal'>Deal</button>
     <div id='deck'></div>
-    <hr>
-    <hr>
-    <div id='hand'></div>
+    <div class="row">
+    <div id="handArea"></div>
+    </div>
+    <div class="row">
+        <div id=inspectArea></div>
+    </div>
+    
 </body>
 </html>
