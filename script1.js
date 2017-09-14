@@ -45,8 +45,8 @@ buildDeck(cards);
 function dealCards(){
     if(fullDeck.length > 0 && inspectCard === 0) {
     for (var i = 0; i < 1; i++) {
-
-    hand.push(deck[i]);
+    
+    hand.push(deck[i].toString() + count.toString());
     showHand();
     
     deck.splice(deck[i], 1);
@@ -84,7 +84,6 @@ function lookCard(cardId){
   //pop up that allows player to confirm discard / RETURN / play
 
   if (inspectCard === 0) {
-  selected = cardId.toString();  
   var buttonPlay = document.createElement("button");
   buttonPlay.setAttribute("onclick", "playCard('"+cardId+"');");
   buttonPlay.innerHTML = 'Play';
@@ -108,9 +107,9 @@ function lookCard(cardId){
 
 
 
-// function selectCard(indexOf(hand[i]) {
-//     return hand.indexOf(hand[i]).toString();
-// }
+function selectCard(cardId) {
+    
+}
 
 
  
@@ -123,7 +122,8 @@ var discardPile = [];
 
 
 function discardCard(cardId){
-  
+  var selected = hand.indexOf(cardId);
+  hand.splice(selected, 1);
   discardPile.push(cardId);
    var parent = document.getElementById("handArea");
   //Then, define the "child" (aka card) that you would like to remove from
