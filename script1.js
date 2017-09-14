@@ -5,6 +5,7 @@ var fullDeck = [];
 var deck = [];
 var hand = [];
 var inspectCard=0;
+
 buildDeck(cards);
 
 
@@ -47,73 +48,93 @@ function dealCards(){
 
     hand.push(deck[i]);
     showHand();
+    
     deck.splice(deck[i], 1);
       }
     // document.getElementById("deck").innerHTML = deck.toString();
   }
 
-
 }
+
 
 var count=1;
 function showHand(){
-        
+
         for (var i = 0; i < 1; i++) {
         var button = document.createElement("button");
         //assign each button an ID. ID will be the card's name and a counter value
-        var cardID = deck[i].toString() + count.toString()
-        button.setAttribute("id", cardID);
+        var cardId = deck[i].toString() + count.toString()
+        
+        button.setAttribute("id", cardId);
         //assign an onclick attribute to each button. playCard(cardName);
         //See the playCard function below
-        button.setAttribute("onclick", "lookCard('"+ cardID +"');")
-        button.className = 'btn btn-primary btn-lrg';
+        button.setAttribute("onclick", "lookCard('"+ cardId +"');")
+        
+        button.className = 'btn btn-primary btn-lg';
         button.innerHTML = deck[i].toString();
         var handArea = document.getElementById('handArea');
         handArea.appendChild(button);
+        
         count++;
         }
 }
 
 //function that will execute when a card is clicked
-function lookCard(cardID){
+function lookCard(cardId){
   //pop up that allows player to confirm discard / RETURN / play
-  
+
   if (inspectCard === 0) {
+  selected = cardId.toString();  
   var buttonPlay = document.createElement("button");
-  buttonPlay.setAttribute("onclick", "playCard('"+cardID+"');");
+  buttonPlay.setAttribute("onclick", "playCard('"+cardId+"');");
   buttonPlay.innerHTML = 'Play';
-  buttonPlay.className = 'btn btn-primary btn-lrg col-xs-4';
+  buttonPlay.className = 'btn btn-primary btn-lg col-xs-4';
   var inspectArea = document.getElementById("inspectArea");
   inspectArea.appendChild(buttonPlay);
   var buttonDiscard = document.createElement("button")
-  buttonDiscard.setAttribute("onclick", "discardCard('"+cardID+"');");
+  buttonDiscard.setAttribute("onclick", "discardCard('"+cardId+"');");
   buttonDiscard.innerHTML = 'Discard';
-  buttonDiscard.className = 'btn btn-primary btn-lrg col-xs-4';
+  buttonDiscard.className = 'btn btn-primary btn-lg col-xs-4';
   inspectArea.appendChild(buttonDiscard);
   var buttonReturn = document.createElement("button")
   buttonReturn.innerHTML = 'Return';
-  buttonReturn.className = 'btn btn-primary btn-lrg col-xs-4';
+  buttonReturn.className = 'btn btn-primary btn-lg col-xs-4';
   buttonReturn.setAttribute("onclick", "returnCard();");
   inspectArea.appendChild(buttonReturn);
-  inspectCard = 1;
+  inspectCard++;
      }
-    
+
 }
 
-function playCard(cardID){
-   
+
+
+// function selectCard(indexOf(hand[i]) {
+//     return hand.indexOf(hand[i]).toString();
+// }
+
+
+ 
+function playCard(cardId){
+
 }
+
+
 var discardPile = [];
 
 
-function discardCard(cardID){
-  debugger;
-  var handArea = document.getElementById('handArea');
-  var card = document.querySelector('#cardID');
-  handArea.removeChild('card');
-  discardPile.push(cardID);
-  hand.splice(1);
+function discardCard(cardId){
+  
+  discardPile.push(cardId);
+   var parent = document.getElementById("handArea");
+  //Then, define the "child" (aka card) that you would like to remove from
+  //the parent area.
+  var child = document.getElementById(cardId);
+  //Now, tell the parent element (handArea) to find the child and remove it.
+  parent.removeChild(child);
   returnCard();
+  
+
+
 }
 
 function returnCard() {
@@ -121,7 +142,4 @@ function returnCard() {
   returnCard.innerHTML = '';
   inspectCard=0;
   }
-
-
-
 
