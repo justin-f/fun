@@ -9,7 +9,7 @@ var playArea = [];
 var discardPile = [];
 var currentCard = 'XbX3';
 buildDeck(cards);
-
+var dealCheck = 0;
 
     function buildDeck(array){
          //Take the item in the array
@@ -35,19 +35,34 @@ buildDeck(cards);
 
 
     function showShuffle(){
-        if(fullDeck.length === 40) {
-      //document.getElementById("result").innerHTML = shuffleArray(cards).toString();
+        if(dealCheck == 0) {
         deck = shuffleArray(fullDeck);
-      // document.getElementById("deck").innerHTML = deck.toString();
+           drawCards();
+           drawCards();
+           drawCards();
+           drawChecker = 0;
+        var button = document.getElementById("deal");
+        button.className = 'btn btn-warning btn-lg disabled';
+        dealCheck = 1
         } 
     }
-        
+var drawChecker = 0;    
+function drawCheck() {
+    if(drawChecker == 0) {
+        drawCards();
+    var button = document.getElementById("draw");
+    button.className = 'btn btn-danger btn-lg disabled';
+    } else {
+        var button = document.getElementById("draw");
+    button.className = 'btn btn-danger btn-lg disabled';
+    }
+}   
 
 //deal one card to player and remove from shuffled Deck
 // var hand = [];
-function dealCards(){
+function drawCards(){
     returnCard();
-    if(fullDeck.length > 0 && inspectCard === 0) {
+    if(fullDeck.length > 0 && inspectCard == 0) {
     for (var i = 0; i < 1; i++) {
     
     hand.push(deck[i].toString() + count.toString());
@@ -57,9 +72,21 @@ function dealCards(){
     
     deck.splice(deck[i], 1);
       }
-     
-    // document.getElementById("deck").innerHTML = deck.toString();
+    drawChecker++; 
+        // document.getElementById("deck").innerHTML = deck.toString();
   }
+
+}
+
+function endTurn(){
+    if(hand.length < 4) {
+    returnCard();
+    drawChecker = 0;
+    var button = document.getElementById("draw");
+    button.className = 'btn btn-danger btn-lg';
+} else {
+    alert('discard or play card before ending turn');
+}
 
 }
 
