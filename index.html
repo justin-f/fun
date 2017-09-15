@@ -17,7 +17,6 @@
 <style>
     #deck {
     display:block;
-    width:400px;
     word-wrap:break-word;
     font-family: "Consolas";
     }
@@ -26,27 +25,34 @@
     font-size: .8em;
     padding-top: 20px;
     padding-bottom: 20px;
-    
-    
-}
+    }
+    body {
+    border-style:solid;
+    padding:2em;
+       }
+   
 </style>
 <body>
-    <button type='button' onClick='showShuffle();' id='shuffle' class = 'btn btn-warning btn-large'>Shuffle</button>
-    <button type='button' onClick='dealCards();' id='deal' class= 'btn btn-danger btn-large'>Deal</button>
+    <div class="row">
+    <button type='button' onClick='showShuffle();' id='shuffle' class = 'btn btn-warning btn-lg col-xs-5'>Shuffle</button>
+    <button type='button' onClick='dealCards();' id='deal' class= 'btn btn-danger btn-lg col-xs-5'>Deal</button>
+    </div>
     <div id='deck'></div>
+    <div class="row">
+        <div id='playArea'>
+            <button class='btn btn-lg btn-success'>321GO => 3</button>
+        </div>
+    </div>
     <div class="row">
     <div id="handArea"></div>
     </div>
-    <div class="row">
+     <div class="row">
         <div id='inspectArea'></div>
-    </div>
-    <div class="row">
-        <div id='playArea'></div>
     </div>
     <div class="row">
         <div id='discardArea'></div>
     </div>
-    
+   
     
     <script src='script1.js'></script>
 </body>

@@ -1,11 +1,13 @@
 
 var cards = ["br12", "br13", "br21", "br23", "br31", "br32", "br11", "br22", "br33", "rb12",
-        "rb13", "rb21", "rb23", "rb31", "rb32", "rb11", "rb22", "rb33"];
+        "rb13", "rb21", "rb23", "rb31", "rb32", "rb11", "rb22", "rb33", "bb11", "rr11"];
 var fullDeck = [];
 var deck = [];
 var hand = [];
 var inspectCard=0;
-
+var playArea = [];
+var discardPile = [];
+var currentCard = 'XbX3';
 buildDeck(cards);
 
 
@@ -33,24 +35,29 @@ buildDeck(cards);
 
 
     function showShuffle(){
-        if(fullDeck.length === 36) {
+        if(fullDeck.length === 40) {
       //document.getElementById("result").innerHTML = shuffleArray(cards).toString();
-      deck = shuffleArray(fullDeck);
+        deck = shuffleArray(fullDeck);
       // document.getElementById("deck").innerHTML = deck.toString();
-        }
-}
+        } 
+    }
+        
 
 //deal one card to player and remove from shuffled Deck
 // var hand = [];
 function dealCards(){
+    returnCard();
     if(fullDeck.length > 0 && inspectCard === 0) {
     for (var i = 0; i < 1; i++) {
     
     hand.push(deck[i].toString() + count.toString());
     showHand();
     
+    
+    
     deck.splice(deck[i], 1);
       }
+     
     // document.getElementById("deck").innerHTML = deck.toString();
   }
 
@@ -63,12 +70,12 @@ function showHand(){
         for (var i = 0; i < 1; i++) {
         var button = document.createElement("button");
         //assign each button an ID. ID will be the card's name and a counter value
-        var cardId = deck[i].toString() + count.toString()
+        var cardId = deck[i].toString() + count.toString();
         
         button.setAttribute("id", cardId);
         //assign an onclick attribute to each button. playCard(cardName);
         //See the playCard function below
-        button.setAttribute("onclick", "lookCard('"+ cardId +"');")
+        button.setAttribute("onclick", "lookCard('"+ cardId +"');");
         
         button.className = 'btn btn-primary btn-lg';
         button.innerHTML = deck[i].toString();
@@ -79,52 +86,80 @@ function showHand(){
         }
 }
 
+
+
 //function that will execute when a card is clicked
 function lookCard(cardId){
   //pop up that allows player to confirm discard / RETURN / play
-
+  returnCard();
   if (inspectCard === 0) {
+    if (currentCard.charAt(1) == cardId.charAt(0) && currentCard.charAt(3) == cardId.charAt(2)) {
   var buttonPlay = document.createElement("button");
-  buttonPlay.setAttribute("onclick", "playCard('"+cardId+"');");
-  buttonPlay.innerHTML = 'Play';
-  buttonPlay.className = 'btn btn-primary btn-lg col-xs-4';
+    buttonPlay.setAttribute("onclick", "playCard('"+cardId+"');");
+    buttonPlay.innerHTML = 'Play';
+    buttonPlay.className = 'btn btn-primary btn-lg btn-info';
+    buttonPlay.setAttribute("id", "playButton");
   var inspectArea = document.getElementById("inspectArea");
-  inspectArea.appendChild(buttonPlay);
+    inspectArea.appendChild(buttonPlay);
+    } else {
+  var buttonPlay = document.createElement("button");
+    buttonPlay.setAttribute("onclick", "playCard('"+cardId+"');");
+    buttonPlay.innerHTML = 'Play';
+    buttonPlay.className = 'btn btn-primary btn-lg btn-info disabled';
+    buttonPlay.setAttribute("id", "playButton");
+  var inspectArea = document.getElementById("inspectArea");
+    inspectArea.appendChild(buttonPlay);
+    }
   var buttonDiscard = document.createElement("button")
-  buttonDiscard.setAttribute("onclick", "discardCard('"+cardId+"');");
-  buttonDiscard.innerHTML = 'Discard';
-  buttonDiscard.className = 'btn btn-primary btn-lg col-xs-4';
-  inspectArea.appendChild(buttonDiscard);
+    buttonDiscard.setAttribute("onclick", "discardCard('"+cardId+"');");
+    buttonDiscard.innerHTML = 'Discard';
+    buttonDiscard.className = 'btn btn-primary btn-lg btn-info';
+    inspectArea.appendChild(buttonDiscard);
   var buttonReturn = document.createElement("button")
-  buttonReturn.innerHTML = 'Return';
-  buttonReturn.className = 'btn btn-primary btn-lg col-xs-4';
-  buttonReturn.setAttribute("onclick", "returnCard();");
-  inspectArea.appendChild(buttonReturn);
-  inspectCard++;
-     }
-
-}
-
-
-
-function selectCard(cardId) {
+    buttonReturn.innerHTML = 'Return';
+    buttonReturn.className = 'btn btn-primary btn-lg btn-info';
+    buttonReturn.setAttribute("onclick", "returnCard();");
+    inspectArea.appendChild(buttonReturn);
+    inspectCard++;
+    }
     
+
+
 }
 
-
- 
 function playCard(cardId){
-
+  if (currentCard.charAt(1) == cardId.charAt(0) && currentCard.charAt(3) == cardId.charAt(2)) {
+  
+  var selected = hand.indexOf(cardId);
+  hand.splice(selected, 1); 
+  playArea.push(cardId);
+  var parent = document.getElementById("handArea");
+  var child = document.getElementById(cardId);
+  parent.removeChild(child);
+  showPlay(cardId);
+  returnCard();
+  currentCard = cardId.toString();
+  
+} 
 }
 
-
-var discardPile = [];
+function showPlay(cardId){
+    
+        var playCardId = cardId.toString();
+        var button = document.createElement("button");
+        var playArea = document.getElementById('playArea');
+        playArea.appendChild(button);
+        button.setAttribute("id", playCardId);
+        button.className = 'btn btn-lg btn-success';
+        button.innerHTML = cardId.toString();
+       
+}
 
 
 function discardCard(cardId){
   var selected = hand.indexOf(cardId);
   hand.splice(selected, 1);
-  discardPile.push(cardId);
+  discardPile.push(cardId.substring(0, 4));
    var parent = document.getElementById("handArea");
   //Then, define the "child" (aka card) that you would like to remove from
   //the parent area.
@@ -132,9 +167,6 @@ function discardCard(cardId){
   //Now, tell the parent element (handArea) to find the child and remove it.
   parent.removeChild(child);
   returnCard();
-  
-
-
 }
 
 function returnCard() {
