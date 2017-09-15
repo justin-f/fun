@@ -76,7 +76,7 @@ function showHand(){
         //assign an onclick attribute to each button. playCard(cardName);
         //See the playCard function below
         button.setAttribute("onclick", "lookCard('"+ cardId +"');");
-        button.className = 'btn btn-primary btn-lg';
+        // button.className = 'btn btn-primary btn-lg';
         buildCard(button, cardId);
         
         // button.innerHTML = deck[i].toString();
@@ -93,10 +93,10 @@ function buildCard(button, cardId) {
         var secondColor = cardId.charAt(1);
         var secondNumber = cardId.charAt(3);
         if (firstColor == 'b') {
-        button.className = 'btn btn-lg blackCard';
+        button.className = 'blackCard';
         button.innerHTML = firstNumber.toString() + secondNumber.toString(); 
 } else {
-        button.className = 'btn btn-lg redCard';
+        button.className = 'redCard';
         button.innerHTML = firstNumber.toString() + secondNumber.toString();    
         }
 }

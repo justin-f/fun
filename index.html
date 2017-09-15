@@ -19,22 +19,40 @@
 </style>
 <body>
     <div class="row">
-    <button type='button' onClick='showShuffle();' id='shuffle' class = 'btn btn-warning btn-lg col-xs-5'>Shuffle</button>
-    <button type='button' onClick='dealCards();' id='deal' class= 'btn btn-danger btn-lg col-xs-5'>Deal</button>
+     <div id="shuffleDeal">   
+    <button type='button' onClick='showShuffle();' id='shuffle' class = 'btn btn-warning btn-lg '>Shuffle</button>
+    <button type='button' onClick='dealCards();' id='deal' class= 'btn btn-danger btn-lg '>Deal</button>
     </div>
-    <div id='deck'></div>
+    </div>
+    <!--<div id='deck'></div>-->
+    <div class ="row">
+        <hr>
+        <h1>Hand</h1>
+        <hr>
+    </div>
+    
     <div class="row">
-        <div id='playArea'>
-            <button class='btn btn-lg'>321GO => <span style = color:black>3</span></button>
-        </div>
+        <div id="handArea"></div>
     </div>
+    
     <div class="row">
-    <div id="handArea"></div>
-    </div>
-     <div class="row">
         <div id='inspectArea'></div>
     </div>
+    
+    <div class ="row">
+        <hr>
+        <h1>Play Area</h1>
+        <hr>
+    </div>
+     
+    
     <div class="row">
+        <div id='playArea'>
+            <button style="color:black">3</button>
+        </div>
+    </div>
+   
+     <div class="row">
         <div id='discardArea'></div>
     </div>
    

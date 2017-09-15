@@ -1,16 +1,12 @@
-#deck {
-    display:block;
-    word-wrap:break-word;
-    font-family: "Consolas";
-    }
-.hand {
-    border-radius: 20%;
-    font-size: .8em;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    }
+/*#deck {*/
+/*    display:block;*/
+/*    word-wrap:break-word;*/
+/*    font-family: "Consolas";*/
+/*    }*/
+
 body {
-    border-style:solid;
+    border-style:double;
+    border-width:1em;
     padding:2em;
     }
     
@@ -27,14 +23,87 @@ body {
 .redCard:first-letter {
     color: red; 
 }
-#playArea > button {
-    border-style:solid;
-    border-width:2px;
-    border-color:black;
+/*#playArea > button {*/
+/*    border-style:solid;*/
+/*    border-width:2px;*/
+/*    border-color:black;*/
+/*    font-size:3em;*/
+/*    padding:10px;*/
+/*    text-align:center;*/
+    
+    
+/*}*/
+
+/*#handArea > button {*/
+/*    border-style:solid;*/
+/*    border-width:2px;*/
+/*    border-color:black;*/
+/*    font-size:3em;*/
+/*    padding:0px 0px 0px 0px;*/
+/*    text-align:center;*/
+   
+    
+    
+    
+/*}*/
+#playArea {
+    text-align: center;
+}
+#handArea {
+    text-align: center;
+}
+#inspectArea {
+    text-align: center;
+}
+#shuffleDeal { 
+ text-align:center;
+}
+#handArea > button {
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  text-shadow: 0px 0px 0px #666666;
+  font-family: Arial;
+  font-size: 60px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  background: #ffffff;
+  border-top: solid #000000 5px;
+  border-right: solid #000000 5px;
+  border-bottom: solid #000000 7px;
+  border-left: solid #000000 5px;
+  text-decoration: none;
 }
 
-#handArea > button {
-    border-style:solid;
-    border-width:2px;
-    border-color:black;
+#handArea > button:hover {
+  background: #e0e0e0;
+  text-decoration: none;
+}
+#handArea > button:focus {
+  background: #b2ffd3;
+  text-decoration: none;
+}
+#playArea > button {
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  text-shadow: 0px 0px 0px #666666;
+  font-family: Arial;
+  font-size: 60px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  background: #ffffff;
+  border-top: solid #000000 5px;
+  border-right: solid #000000 5px;
+  border-bottom: solid #000000 7px;
+  border-left: solid #000000 5px;
+  text-decoration: none;
+  
+}
+
+#playArea > button:hover {
+  background: #e0e0e0;
+  text-decoration: none;
 }
