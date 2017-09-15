@@ -76,15 +76,32 @@ function showHand(){
         //assign an onclick attribute to each button. playCard(cardName);
         //See the playCard function below
         button.setAttribute("onclick", "lookCard('"+ cardId +"');");
-        
         button.className = 'btn btn-primary btn-lg';
-        button.innerHTML = deck[i].toString();
+        buildCard(button, cardId);
+        
+        // button.innerHTML = deck[i].toString();
         var handArea = document.getElementById('handArea');
         handArea.appendChild(button);
         
         count++;
         }
 }
+
+function buildCard(button, cardId) {
+        var firstColor = cardId.charAt(0);
+        var firstNumber = cardId.charAt(2);
+        var secondColor = cardId.charAt(1);
+        var secondNumber = cardId.charAt(3);
+        if (firstColor == 'b') {
+        button.className = 'btn btn-primary btn-lg blackCard';
+        button.innerHTML = firstNumber.toString() + secondNumber.toString(); 
+} else {
+        button.className = 'btn btn-primary btn-lg redCard';
+        button.innerHTML = firstNumber.toString() + secondNumber.toString();    
+        }
+}
+
+
 
 
 
@@ -150,8 +167,9 @@ function showPlay(cardId){
         var playArea = document.getElementById('playArea');
         playArea.appendChild(button);
         button.setAttribute("id", playCardId);
-        button.className = 'btn btn-lg btn-success';
-        button.innerHTML = cardId.toString();
+        // button.className = 'btn btn-lg btn-success';
+        // button.innerHTML = cardId.toString();
+        buildCard(button, cardId);
        
 }
 
@@ -174,4 +192,5 @@ function returnCard() {
   returnCard.innerHTML = '';
   inspectCard=0;
   }
+
 

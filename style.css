@@ -1,0 +1,29 @@
+#deck {
+    display:block;
+    word-wrap:break-word;
+    font-family: "Consolas";
+    }
+.hand {
+    border-radius: 20%;
+    font-size: .8em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    }
+body {
+    border-style:solid;
+    padding:2em;
+    }
+    
+.blackCard {
+    color: red;
+}
+.blackCard:first-letter {
+    color: black; 
+}
+
+.redCard {
+    color:black;
+}
+.redCard:first-letter {
+    color: red; 
+}
