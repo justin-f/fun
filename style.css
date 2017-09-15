@@ -27,3 +27,14 @@ body {
 .redCard:first-letter {
     color: red; 
 }
+#playArea > button {
+    border-style:solid;
+    border-width:2px;
+    border-color:black;
+}
+
+#handArea > button {
+    border-style:solid;
+    border-width:2px;
+    border-color:black;
+}

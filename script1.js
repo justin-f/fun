@@ -93,10 +93,10 @@ function buildCard(button, cardId) {
         var secondColor = cardId.charAt(1);
         var secondNumber = cardId.charAt(3);
         if (firstColor == 'b') {
-        button.className = 'btn btn-primary btn-lg blackCard';
+        button.className = 'btn btn-lg blackCard';
         button.innerHTML = firstNumber.toString() + secondNumber.toString(); 
 } else {
-        button.className = 'btn btn-primary btn-lg redCard';
+        button.className = 'btn btn-lg redCard';
         button.innerHTML = firstNumber.toString() + secondNumber.toString();    
         }
 }
