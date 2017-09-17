@@ -121,16 +121,31 @@ function buildCard(button, cardId) {
         var firstNumber = cardId.charAt(2);
         var secondColor = cardId.charAt(1);
         var secondNumber = cardId.charAt(3);
-        if (firstColor == 'b') {
+        if (firstColor == 'b' && secondColor == 'r') {
         button.className = 'blackCard';
         button.innerHTML = firstNumber.toString() + arrow + secondNumber.toString(); 
-} else {
+} else if (firstColor == 'r' && secondColor == 'b') {
         button.className = 'redCard';
         button.innerHTML = firstNumber.toString() + arrow + secondNumber.toString();    
+        } else {
+            goCard(button, cardId);
         }
-}
+} 
 
-
+function goCard(button, cardId) {
+        var firstColor = cardId.charAt(0);
+        var firstNumber = cardId.charAt(2);
+        var secondColor = cardId.charAt(1);
+        var secondNumber = cardId.charAt(3);
+        if (firstColor == 'b' && secondColor == 'b') {
+        button.className = 'blackGoCard';
+        button.innerHTML = 'GO'; 
+} else if (firstColor == 'r' && secondColor == 'r') {
+        button.className = 'redGoCard';
+        button.innerHTML = 'GO';    
+        }
+            
+} 
 
 
 

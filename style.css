@@ -42,7 +42,12 @@ body {
 /*    padding:0px 0px 0px 0px;*/
 /*    text-align:center;*/
    
-    
+.redGoCard {
+    color:red;
+}
+.blackGoCard {
+    color:black;
+}
     
     
 /*}*/
