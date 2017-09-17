@@ -113,6 +113,8 @@ function showHand(){
         count++;
         }
 }
+var arrow = '\&rarr;'
+    
 
 function buildCard(button, cardId) {
         var firstColor = cardId.charAt(0);
@@ -121,10 +123,10 @@ function buildCard(button, cardId) {
         var secondNumber = cardId.charAt(3);
         if (firstColor == 'b') {
         button.className = 'blackCard';
-        button.innerHTML = firstNumber.toString() + secondNumber.toString(); 
+        button.innerHTML = firstNumber.toString() + arrow + secondNumber.toString(); 
 } else {
         button.className = 'redCard';
-        button.innerHTML = firstNumber.toString() + secondNumber.toString();    
+        button.innerHTML = firstNumber.toString() + arrow + secondNumber.toString();    
         }
 }
 
