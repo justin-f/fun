@@ -113,7 +113,7 @@ function showHand(){
         count++;
         }
 }
-var arrow = '\&rarr;'
+var arrow = '&#10159;'
     
 
 function buildCard(button, cardId) {
@@ -128,7 +128,7 @@ function buildCard(button, cardId) {
         button.className = 'redCard';
         button.innerHTML = firstNumber.toString() + arrow + secondNumber.toString();    
         } else {
-            goCard(button, cardId);
+            goard(button, cardId);
         }
 } 
 

@@ -68,7 +68,8 @@ body {
   -moz-border-radius: 15;
   border-radius: 15px;
   text-shadow: 0px 0px 0px #666666;
-  font-family: Arial;
+  font-family: Impact, Arial;
+  width: 3em;
   font-size: 60px;
   padding-right: 20px;
   padding-bottom: 10px;
@@ -94,8 +95,9 @@ body {
   -moz-border-radius: 15;
   border-radius: 15px;
   text-shadow: 0px 0px 0px #666666;
-  font-family: Arial;
+  font-family: Impact, Arial;
   font-size: 60px;
+  width: 3em;
   padding-right: 20px;
   padding-bottom: 10px;
   padding-left: 20px;
